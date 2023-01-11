@@ -13,15 +13,11 @@ import {
   EuiToolTip,
   useGeneratedHtmlId,
 } from '@elastic/eui';
-import { i18n } from '@kbn/i18n';
 import { AddToNewCase } from '../../../../../cases/components/add_to_new_case/add_to_new_case';
 import { AddToExistingCase } from '../../../../../cases/components/add_to_existing_case/add_to_existing_case';
 import { Indicator } from '../../../../../../../common/types/indicator';
 import { ADD_TO_EXISTING_TEST_ID, ADD_TO_NEW_CASE_TEST_ID, MORE_ACTIONS_TEST_ID } from './test_ids';
-
-const BUTTON_LABEL = i18n.translate('xpack.threatIntelligence.indicator.table.moreActions', {
-  defaultMessage: 'More actions',
-});
+import { BUTTON_LABEL } from './translations';
 
 export interface TakeActionProps {
   /**
