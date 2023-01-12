@@ -42,7 +42,14 @@ export class JsonLayout implements Layout {
     const traceId = record.meta?.trace?.id ?? record.traceId;
     const transactionId = record.meta?.transaction?.id ?? record.transactionId;
 
-    const log: Ecs = {
+    // TODO This should be replaced with proper usage of EcsVersion export from 'kbn/ecs' package.
+    type LegacyEcsTypings = Omit<Ecs, 'ecs'> & {
+      ecs: {
+        version: '8.4.0';
+      };
+    };
+
+    const log: LegacyEcsTypings = {
       ecs: { version: '8.4.0' },
       '@timestamp': moment(record.timestamp).format('YYYY-MM-DDTHH:mm:ss.SSSZ'),
       message: record.message,

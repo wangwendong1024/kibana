@@ -5,8 +5,9 @@
  * 2.0.
  */
 
-import type { EcsEventOutcome, EcsEventType } from '@kbn/core/server';
+import type { EcsEvent } from '@kbn/core/server';
 import { AuditEvent } from '@kbn/security-plugin/server';
+import { ArrayElement } from '@kbn/utility-types';
 
 export enum ConnectorAuditAction {
   CREATE = 'connector_create',
@@ -28,7 +29,7 @@ const eventVerbs: Record<ConnectorAuditAction, VerbsTuple> = {
   connector_execute: ['execute', 'executing', 'executed'],
 };
 
-const eventTypes: Record<ConnectorAuditAction, EcsEventType | undefined> = {
+const eventTypes: Record<ConnectorAuditAction, ArrayElement<EcsEvent['type']> | undefined> = {
   connector_create: 'creation',
   connector_get: 'access',
   connector_update: 'change',
@@ -39,7 +40,7 @@ const eventTypes: Record<ConnectorAuditAction, EcsEventType | undefined> = {
 
 export interface ConnectorAuditEventParams {
   action: ConnectorAuditAction;
-  outcome?: EcsEventOutcome;
+  outcome?: EcsEvent['outcome'];
   savedObject?: NonNullable<AuditEvent['kibana']>['saved_object'];
   error?: Error;
 }
