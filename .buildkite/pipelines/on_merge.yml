@@ -144,6 +144,13 @@ steps:
   - wait: ~
     continue_on_failure: true
 
+  - command: .buildkite/scripts/steps/on_merge_container_image.sh
+    label: Trigger container image build
+    timeout_in_minutes: 10
+    agents:
+      queue: kibana-default
+    if: "build.state != 'failing'"
+
   - command: .buildkite/scripts/lifecycle/post_build.sh
     label: Post-Build
     timeout_in_minutes: 10
