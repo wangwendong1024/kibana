@@ -29,6 +29,9 @@ node scripts/build \
   --skip-docker-ubi \
   --skip-docker-cloud \
   --skip-docker-contexts
+
+echo "--- Push image"
+docker image push "$KIBANA_IMAGE"
 docker logout docker.elastic.co
 
 echo "--- Build dependencies report"
