@@ -149,7 +149,7 @@ steps:
     timeout_in_minutes: 10
     agents:
       queue: kibana-default
-    if: "build.state != 'failing'"
+    if: "build.state != 'failed'"
 
   - command: .buildkite/scripts/lifecycle/post_build.sh
     label: Post-Build
