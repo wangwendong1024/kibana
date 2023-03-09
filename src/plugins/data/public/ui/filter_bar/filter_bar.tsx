@@ -8,7 +8,7 @@
  * You may obtain a copy of the License at
  *
  *    http://www.apache.org/licenses/LICENSE-2.0
- *
+ * width 400 change 500
  * Unless required by applicable law or agreed to in writing,
  * software distributed under the License is distributed on an
  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
@@ -17,26 +17,26 @@
  * under the License.
  */
 
-import { EuiButtonEmpty, EuiFlexGroup, EuiFlexItem, EuiPopover } from '@elastic/eui';
-import { FormattedMessage, InjectedIntl, injectI18n } from '@kbn/i18n/react';
+import {EuiButtonEmpty, EuiFlexGroup, EuiFlexItem, EuiPopover} from '@elastic/eui';
+import {FormattedMessage, InjectedIntl, injectI18n} from '@kbn/i18n/react';
 import classNames from 'classnames';
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 
-import { FilterEditor } from './filter_editor';
-import { FilterItem } from './filter_item';
-import { FilterOptions } from './filter_options';
-import { useKibana } from '../../../../kibana_react/public';
-import { IIndexPattern } from '../..';
+import {FilterEditor} from './filter_editor';
+import {FilterItem} from './filter_item';
+import {FilterOptions} from './filter_options';
+import {useKibana} from '../../../../kibana_react/public';
+import {IIndexPattern} from '../..';
 import {
   buildEmptyFilter,
-  Filter,
-  enableFilter,
   disableFilter,
+  enableFilter,
+  Filter,
   pinFilter,
   toggleFilterDisabled,
   toggleFilterNegated,
-  unpinFilter,
   UI_SETTINGS,
+  unpinFilter,
 } from '../../../common';
 
 interface Props {
@@ -112,7 +112,7 @@ function FilterBarUI(props: Props) {
           repositionOnScroll
         >
           <EuiFlexItem grow={false}>
-            <div style={{ width: 400 }}>
+            <div style={{width: 550}}>
               <FilterEditor
                 filter={newFilter}
                 indexPatterns={props.indexPatterns}
@@ -126,7 +126,6 @@ function FilterBarUI(props: Props) {
       </EuiFlexItem>
     );
   }
-
   function onAdd(filter: Filter) {
     setIsAddFilterPopoverOpen(false);
     const filters = [...props.filters, filter];

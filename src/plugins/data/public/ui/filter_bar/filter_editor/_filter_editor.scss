@@ -1,3 +1,4 @@
 .globalFilterEditor__fieldInput {
-  max-width: $euiSize * 13;
+  // max-width: $euiSize * 13; 这个改成了百分百
+  width: 100%;
 }

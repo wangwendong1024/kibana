@@ -1,6 +1,7 @@
 .aws-config.json
 .signing-config.json
 .ackrc
+/config/kibana.yml
 /.es
 /.chromium
 .DS_Store

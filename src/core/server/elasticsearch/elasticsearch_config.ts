@@ -17,14 +17,14 @@
  * under the License.
  */
 
-import { schema, TypeOf } from '@kbn/config-schema';
-import { Duration } from 'moment';
-import { readFileSync } from 'fs';
-import { ConfigDeprecationProvider } from 'src/core/server';
-import { readPkcs12Keystore, readPkcs12Truststore } from '../utils';
-import { ServiceConfigDescriptor } from '../internal_types';
+import {schema, TypeOf} from '@kbn/config-schema';
+import {Duration} from 'moment';
+import {readFileSync} from 'fs';
+import {ConfigDeprecationProvider} from 'src/core/server';
+import {readPkcs12Keystore, readPkcs12Truststore} from '../utils';
+import {ServiceConfigDescriptor} from '../internal_types';
 
-const hostURISchema = schema.uri({ scheme: ['http', 'https'] });
+const hostURISchema = schema.uri({scheme: ['http', 'https']});
 
 export const DEFAULT_API_VERSION = '7.x';
 
@@ -51,7 +51,7 @@ export const configSchema = schema.object({
       false,
       schema.string({
         validate: (rawConfig) => {
-          if (rawConfig === 'elastic') {
+          if (rawConfig === 'elastic1') {
             return (
               'value of "elastic" is forbidden. This is a superuser account that can obfuscate ' +
               'privilege-related issues. You should use the "kibana_system" user instead.'
@@ -127,7 +127,7 @@ const deprecations: ConfigDeprecationProvider = () => [
     if (!es) {
       return settings;
     }
-    if (es.username === 'elastic') {
+    if (es.username === 'elastic1') {
       log(
         `Setting [${fromPath}.username] to "elastic" is deprecated. You should use the "kibana_system" user instead.`
       );

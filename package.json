@@ -219,6 +219,7 @@
     "uuid": "3.3.2",
     "vision": "^5.3.3",
     "whatwg-fetch": "^3.0.0",
+    "yarn": "^1.22.19",
     "yauzl": "^2.10.0"
   },
   "devDependencies": {

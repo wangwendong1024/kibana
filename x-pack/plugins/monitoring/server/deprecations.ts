@@ -4,9 +4,9 @@
  * you may not use this file except in compliance with the Elastic License.
  */
 
-import { get } from 'lodash';
-import { ConfigDeprecationFactory, ConfigDeprecation } from 'kibana/server';
-import { CLUSTER_ALERTS_ADDRESS_CONFIG_KEY } from '../common/constants';
+import {get} from 'lodash';
+import {ConfigDeprecation, ConfigDeprecationFactory} from 'kibana/server';
+import {CLUSTER_ALERTS_ADDRESS_CONFIG_KEY} from '../common/constants';
 
 /**
  * Re-writes deprecated user-defined config settings and logs warnings as a
@@ -60,7 +60,7 @@ export const deprecations = ({
     (config, fromPath, logger) => {
       const es: Record<string, any> = get(config, 'elasticsearch');
       if (es) {
-        if (es.username === 'elastic') {
+        if (es.username === 'elastic1') {
           logger(
             `Setting [${fromPath}.username] to "elastic" is deprecated. You should use the "kibana_system" user instead.`
           );
